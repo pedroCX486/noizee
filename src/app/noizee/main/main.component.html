@@ -9,7 +9,7 @@
         style="text-align: center; width: 190px; display: inline-block; padding: 5px; margin-top: 2rem;">
 
         <audio loop preload="none" [attr.id]="sound.filename">
-            <source src="./assets/sounds/{{sound.filename}}.ogg" type="audio/mpeg">
+            <source src="./assets/sounds/{{sound.filename}}.mp3" type="audio/mpeg">
         </audio>
 
         <div (click)="audioControls(sound.filename)">
@@ -25,5 +25,7 @@
         Icons by <a target="_blank" href="https://www.flaticon.com/br/autores/eucalyp" title="Eucalyp">Eucalyp</a>
         <br />
         Developed by <a target="_blank" href="https://github.com/pedrocx486">PedroCX486</a>
+        <br><br>
+        Issues playing? Our sounds are in MP3 format. Linux users may need to install extra codecs do play them.
     </small>
 </div>
