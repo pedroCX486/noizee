@@ -1,0 +1,29 @@
+<div style="text-align: center; position: relative;">
+    <img src="./assets/logo.png" style="max-width: 60%; height: auto;" />
+    <div style="position: absolute; top: 1rem; right: 1rem; opacity: 0.5;" (click)="pauseAll()">
+        <img src="./assets/icons/mute.svg" width="24px" height="24px" /> <br />
+    </div>
+</div>
+<div style="text-align: center; max-width: 40rem; margin-left: auto; margin-right: auto;">
+    <div *ngFor="let sound of soundList"
+        style="text-align: center; width: 190px; display: inline-block; padding: 5px; margin-top: 2rem;">
+
+        <audio loop preload="none" [attr.id]="sound.filename">
+            <source src="./assets/sounds/{{sound.filename}}.ogg" type="audio/mpeg">
+        </audio>
+
+        <div (click)="audioControls(sound.filename)">
+            <img src="./assets/icons/{{sound.icon}}" width="64px" height="64px" /> <br />
+            <span>{{sound.screenname}}</span>&nbsp;<img *ngIf="sound.playing" src="./assets/icons/playing.svg"
+                width="8px" height="8px" /> <br />
+        </div>
+        <input type="range" (input)="volumeControls(sound.filename, $event.target.value)" title="volume" min="0"
+            max="100" step="1" value="20" [attr.id]="sound.filename + '-volume'">
+    </div>
+    <br>
+    <small style="padding: 5px;">
+        Icons by <a target="_blank" href="https://www.flaticon.com/br/autores/eucalyp" title="Eucalyp">Eucalyp</a>
+        <br />
+        Developed by <a target="_blank" href="https://github.com/pedrocx486">PedroCX486</a>
+    </small>
+</div>

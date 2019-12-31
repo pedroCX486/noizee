@@ -1,0 +1,77 @@
+[
+    {
+        "filename": "fire",
+        "screenname": "Fire",
+        "icon": "fire.svg"
+    },
+    {
+        "filename": "garden",
+        "screenname": "Garden",
+        "icon": "garden.svg"
+    },
+    {
+        "filename": "night",
+        "screenname": "Night",
+        "icon": "night.svg"
+    },
+    {
+        "filename": "rain",
+        "screenname": "Rain",
+        "icon": "rain.svg"
+    },
+    {
+        "filename": "rainstorm",
+        "screenname": "Rainstorm",
+        "icon": "rainstorm.svg"
+    },
+    {
+        "filename": "river",
+        "screenname": "River",
+        "icon": "river.svg"
+    },
+    {
+        "filename": "seaside",
+        "screenname": "Seaside",
+        "icon": "seaside.svg"
+    },
+    {
+        "filename": "thunderstorm",
+        "screenname": "Thunderstorm",
+        "icon": "thunderstorm.svg"
+    },
+    {
+        "filename": "wind",
+        "screenname": "Wind",
+        "icon": "wind.svg"
+    },
+    {
+        "filename": "whitenoise",
+        "screenname": "White Noise",
+        "icon": "whitenoise.png"
+    },
+    {
+        "filename": "brownnoise",
+        "screenname": "Brown Noise",
+        "icon": "brownnoise.png"
+    },
+    {
+        "filename": "coffee",
+        "screenname": "Coffee Shop",
+        "icon": "coffee.svg"
+    },
+    {
+        "filename": "fan",
+        "screenname": "Fan",
+        "icon": "fan.svg"
+    },
+    {
+        "filename": "pinknoise",
+        "screenname": "Pink Noise",
+        "icon": "pinknoise.png"
+    },
+    {
+        "filename": "train",
+        "screenname": "Train",
+        "icon": "train.svg"
+    }
+]
