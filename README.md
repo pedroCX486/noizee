@@ -1,14 +1,14 @@
 # Noizee
 
-An alternative to Noisli made in [Angular](https://github.com/angular/angular-cli) 8.
+An alternative to Noisli made in [Angular](https://github.com/angular/angular-cli).
 
 ## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/` or wait until the compiler opens a window. The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. If you wish to run the project inside a subfolder, run the `build-for-subfolder.bat` to build it to run under the `\noisli\` subfolder in your server.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. If you wish to run the project inside a subfolder, run the command `npm run subfolder-build` to build it to run under the `\noizee\` subfolder in your server.
 
 ## Contributing
 

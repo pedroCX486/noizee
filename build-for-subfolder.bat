@@ -1,1 +1,0 @@
-ng build --base-href="/noizee/" --deploy-url=/noizee/ --configuration=production
