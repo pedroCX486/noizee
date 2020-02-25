@@ -1,6 +1,6 @@
 {
   "name": "noizee",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
@@ -20,13 +20,16 @@
     "@angular/platform-browser": "~9.0.2",
     "@angular/platform-browser-dynamic": "~9.0.2",
     "@angular/router": "~9.0.2",
-    "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
-    "ngx-bootstrap": "^5.2.0",
-    "popper.js": "^1.16.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "bootstrap": "^4.4.1",
+    "ngx-bootstrap": "^5.2.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
+    "material-design-icons": "^3.0.1",
+    "@ckeditor/ckeditor5-angular": "^1.1.2",
+    "@ckeditor/ckeditor5-build-decoupled-document": "^12.4.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.3",

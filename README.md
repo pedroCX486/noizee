@@ -24,6 +24,4 @@ Here: http://pedrocx486.github.io/noizee/
 
 ## TODO
 
-- Include an text editor, probably based on my already existent implementation of the CKEditor 5 that I put on ngx-Dumblog.
-- Save the texts locally every so often on the browser's local storage then delete from there once you export your file.
-- Think what formats I should add support to export. I don't plan anything fancy, probably TXT, HTML, JSON and maybe, MAYBE, PDF.
+- Have an feature you want to request? You can open an issue.

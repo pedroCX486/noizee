@@ -1,7 +1,10 @@
-<div style="text-align: center; position: relative;">
+<div style="text-align: center; position: relative;" class="main-text">
     <img src="./assets/logo.png" style="max-width: 60%; height: auto;" />
     <div style="position: absolute; top: 1rem; right: 1rem; opacity: 0.5;" (click)="pauseAll()">
-        <img src="./assets/icons/mute.svg" width="24px" height="24px" /> <br />
+        <i class="material-icons">volume_off</i> <br />
+    </div>
+    <div style="position: absolute; top: 1rem; left: 1rem;" (click)="editorModal.show()">
+        <i class="material-icons">edit</i> <br />
     </div>
 </div>
 <div style="text-align: center; max-width: 40rem; margin-left: auto; margin-right: auto;">
@@ -14,18 +17,53 @@
 
         <div (click)="audioControls(sound.filename)">
             <img src="./assets/icons/{{sound.icon}}" width="64px" height="64px" /> <br />
-            <span>{{sound.screenname}}</span>&nbsp;<img *ngIf="sound.playing" src="./assets/icons/playing.svg"
-                width="8px" height="8px" /> <br />
+            <span class="main-text">{{sound.screenname}}</span>&nbsp;<img *ngIf="sound.playing"
+                src="./assets/icons/playing.svg" width="8px" height="8px" /> <br />
         </div>
         <input type="range" (input)="volumeControls(sound.filename, $event.target.value)" title="volume" min="0"
             max="100" step="1" value="20" [attr.id]="sound.filename + '-volume'">
     </div>
     <br>
-    <small style="padding: 5px;">
+    <small style="padding: 5px;" class="main-text">
         Icons by <a target="_blank" href="https://www.flaticon.com/br/autores/eucalyp" title="Eucalyp">Eucalyp</a>
         <br />
         Developed by <a target="_blank" href="https://github.com/pedrocx486">PedroCX486</a>
         <br><br>
         Issues playing? Our sounds are in MP3 format.<br>Linux users may need to install extra codecs to play them.
     </small>
+</div>
+
+<div class="modal fade" bsModal #editorModal="bs-modal" [config]="{ backdrop: 'static' }" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-editor">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="dialog-editor" class="modal-title pull-left">Text Editor</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="editorModal.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="margins">
+                    <input [(ngModel)]="textTitle" type="text" class="form-control no-border" placeholder="Your title">
+
+                    <ckeditor [(ngModel)]="textContent" [editor]="Editor" (ready)="editorReady($event)"></ckeditor>
+
+                    <div id="poweredBy"><a
+                            href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/angular.html"
+                            target="_blank">Powered by<br>CK Editor</a></div>
+
+                    <div class="controls">
+                        <button type="button" class="margin-top btn btn-outline-info"
+                            (click)="resetEditor()">Reset</button>
+                        &nbsp;
+                        <button type="button" class="margin-top btn btn-outline-success" (click)="print()"
+                            data-toggle="modal" data-target="#saveModal">Print (To Printer/File)</button> &nbsp;
+                    </div>
+                    <small>This editor contains an autosave feature that saves your text every 500ms to your
+                        LocalStorage.</small>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
