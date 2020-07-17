@@ -38,8 +38,8 @@ export class MainComponent implements OnInit {
     document.body.style.backgroundColor = '#121212';
     this.loadSounds();
 
-    this.loadFromStorage();
-    this.infiniteSaving();
+    this.loadEditorFromStorage();
+    this.infiniteEditorSaving();
   }
 
   loadSounds() {
@@ -54,14 +54,21 @@ export class MainComponent implements OnInit {
     const soundElement = (document as any).getElementById(sound);
     const volumeElement = (document as any).getElementById(sound + '-volume');
     const soundObj = this.soundList.find(element => element.filename === sound) as any;
+    let playPromise;
 
     if (soundElement.paused) {
       this.volumeControls(sound, volumeElement.value);
       soundObj.playing = true;
-      soundElement.play();
+      playPromise = soundElement.play();
     } else {
       soundObj.playing = false;
       soundElement.pause();
+    }
+
+    if (!!playPromise) {
+      playPromise.catch(() => {
+        alert('There was a problem playing the selected song!\nMaybe your internet is down?');
+      });
     }
   }
 
@@ -69,15 +76,11 @@ export class MainComponent implements OnInit {
     (document as any).getElementById(sound).volume = Number(volume) / 100;
   }
 
-  pauseAll() {
+  stopSounds() {
     this.soundList.forEach(element => {
       (document as any).getElementById(element.filename).pause();
       element.playing = false;
     });
-  }
-
-  getJSON(arg): Observable<any> {
-    return this.http.get(arg);
   }
 
   // Editor related functions
@@ -86,17 +89,17 @@ export class MainComponent implements OnInit {
     this.textContent = 'Your ideas.';
   }
 
-  loadFromStorage() {
+  loadEditorFromStorage() {
     if (localStorage.getItem('textEditor') != null) {
       this.textTitle = JSON.parse(localStorage.getItem('textEditor')).title;
       this.textContent = JSON.parse(localStorage.getItem('textEditor')).content;
     }
   }
 
-  infiniteSaving() {
+  infiniteEditorSaving() {
     setTimeout(() => {
       localStorage.setItem('textEditor', JSON.stringify({ title: this.textTitle, content: this.textContent }));
-      this.infiniteSaving();
+      this.infiniteEditorSaving();
     }, 500);
   }
 
@@ -121,5 +124,10 @@ export class MainComponent implements OnInit {
 
     printWindow.print();
     printWindow.close();
+  }
+
+  // Misc.
+  getJSON(arg): Observable<any> {
+    return this.http.get(arg);
   }
 }
