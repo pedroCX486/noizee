@@ -25,7 +25,6 @@
 .mute-btn:hover {
   color: crimson;
   transition: ease-in 0.3s;
-  animation: fadein 1.2s;
 }
 
 .editor-btn {
@@ -34,10 +33,11 @@
   left: 1rem;
   color: darkgrey;
   transition: ease-in 0.3s;
+  animation: fadein 1.2s;
 }
 
 .editor-btn:hover {
-  color: green;
+  color: slateblue;
   transition: ease-in 0.3s;
 }
 
