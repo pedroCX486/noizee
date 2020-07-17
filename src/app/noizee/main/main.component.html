@@ -1,30 +1,37 @@
-<div style="text-align: center; position: relative;" class="main-text">
-    <img src="./assets/logo.png" style="max-width: 60%; height: auto;" />
-    <div style="position: absolute; top: 1rem; right: 1rem; opacity: 0.5;" (click)="pauseAll()">
+<div class="header">
+    <div>
+        <img src="./assets/logo.png" class="logo" />
+    </div>
+    <div class="mute-btn" (click)="pauseAll()" title="Stop all sounds">
         <i class="material-icons">volume_off</i> <br />
     </div>
-    <div style="position: absolute; top: 1rem; left: 1rem;" (click)="editorModal.show()">
+    <div class="editor-btn" (click)="editorModal.show()">
         <i class="material-icons">edit</i> <br />
     </div>
 </div>
-<div style="text-align: center; max-width: 40rem; margin-left: auto; margin-right: auto;">
-    <div *ngFor="let sound of soundList"
-        style="text-align: center; width: 190px; display: inline-block; padding: 5px; margin-top: 2rem;">
+<div class="box-container">
+    <div *ngFor="let sound of soundList" class="sound-box">
 
         <audio loop preload="none" [attr.id]="sound.filename">
             <source src="./assets/sounds/{{sound.filename}}.mp3" type="audio/mpeg">
         </audio>
 
         <div (click)="audioControls(sound.filename)">
-            <img src="./assets/icons/{{sound.icon}}" width="64px" height="64px" /> <br />
-            <span class="main-text">{{sound.screenname}}</span>&nbsp;<img *ngIf="sound.playing"
-                src="./assets/icons/playing.svg" width="8px" height="8px" /> <br />
+            <img src="./assets/icons/{{sound.icon}}" class="sound-icon" />
+            <br />
+            <div class="audio-info">
+                <span class="text-1">{{sound.screenname}}</span>&nbsp;
+                <div class="playing-icon-box">
+                    <img *ngIf="sound.playing" src="./assets/icons/playing.svg" class="playing-icon" [@fadeInOut] />
+                </div>
+            </div>
+            <br />
         </div>
         <input type="range" (input)="volumeControls(sound.filename, $event.target.value)" title="volume" min="0"
             max="100" step="1" value="20" [attr.id]="sound.filename + '-volume'">
     </div>
     <br>
-    <small style="padding: 5px;" class="main-text">
+    <small class="text-1 footer">
         Icons by <a target="_blank" href="https://www.flaticon.com/br/autores/eucalyp" title="Eucalyp">Eucalyp</a>
         <br />
         Developed by <a target="_blank" href="https://github.com/pedrocx486">PedroCX486</a>
@@ -33,8 +40,7 @@
     </small>
 </div>
 
-<div class="modal fade" bsModal #editorModal="bs-modal" [config]="{ backdrop: 'static' }" tabindex="-1" role="dialog"
-    aria-labelledby="dialog-editor">
+<div class="modal fade" bsModal #editorModal="bs-modal" [config]="{ backdrop: 'static' }" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">

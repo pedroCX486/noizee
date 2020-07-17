@@ -3,11 +3,23 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { style, animate, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [   // :enter is alias to 'void => *'
+        style({ opacity: 0 }),
+        animate(600, style({ opacity: 1 }))
+      ]),
+      transition(':leave', [   // :leave is alias to '* => void'
+        animate(600, style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class MainComponent implements OnInit {
 
