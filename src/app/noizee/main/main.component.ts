@@ -59,16 +59,10 @@ export class MainComponent implements OnInit {
     if (soundElement.paused) {
       this.volumeControls(sound, volumeElement.value);
       soundObj.playing = true;
-      playPromise = soundElement.play();
+      soundElement.play();
     } else {
       soundObj.playing = false;
       soundElement.pause();
-    }
-
-    if (!!playPromise) {
-      playPromise.catch(() => {
-        alert('There was a problem playing the selected song!\nMaybe your internet is down?');
-      });
     }
   }
 
