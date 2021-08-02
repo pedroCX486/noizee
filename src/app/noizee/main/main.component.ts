@@ -24,17 +24,17 @@ import { style, animate, transition, trigger } from '@angular/animations';
 export class MainComponent implements OnInit {
 
   @ViewChild('editorModal', { static: false }) editorModal: ModalDirective;
-  Editor = DecoupledEditor;
-  textTitle;
-  textContent;
+  public Editor = DecoupledEditor;
+  public textTitle: string;
+  public textContent: string;
 
-  soundList;
+  public soundList: Array<any>;
 
   constructor(private http: HttpClient) {
     this.resetEditor();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     document.body.style.backgroundColor = '#121212';
     this.loadSounds();
 
@@ -42,7 +42,8 @@ export class MainComponent implements OnInit {
     this.infiniteEditorSaving();
   }
 
-  loadSounds() {
+  // Audio related functions
+  loadSounds(): void {
     this.getJSON('./assets/soundlist.json').toPromise().then((data) => {
       this.soundList = data;
     }).catch(error => {
@@ -50,11 +51,10 @@ export class MainComponent implements OnInit {
     });
   }
 
-  audioControls(sound) {
+  audioControls(sound: any): void {
     const soundElement = (document as any).getElementById(sound);
     const volumeElement = (document as any).getElementById(sound + '-volume');
     const soundObj = this.soundList.find(element => element.filename === sound) as any;
-    let playPromise;
 
     if (soundElement.paused) {
       this.volumeControls(sound, volumeElement.value);
@@ -66,11 +66,11 @@ export class MainComponent implements OnInit {
     }
   }
 
-  volumeControls(sound, volume) {
+  volumeControls(sound: any, volume: any): void {
     (document as any).getElementById(sound).volume = Number(volume) / 100;
   }
 
-  stopSounds() {
+  stopSounds(): void {
     this.soundList.forEach(element => {
       (document as any).getElementById(element.filename).pause();
       element.playing = false;
@@ -78,33 +78,34 @@ export class MainComponent implements OnInit {
   }
 
   // Editor related functions
-  resetEditor() {
+  resetEditor(): void {
     this.textTitle = 'Your title';
     this.textContent = 'Your ideas.';
   }
 
-  loadEditorFromStorage() {
+  loadEditorFromStorage(): void {
     if (localStorage.getItem('textEditor') != null) {
       this.textTitle = JSON.parse(localStorage.getItem('textEditor')).title;
       this.textContent = JSON.parse(localStorage.getItem('textEditor')).content;
     }
   }
 
-  infiniteEditorSaving() {
+  infiniteEditorSaving(): void {
     setTimeout(() => {
       localStorage.setItem('textEditor', JSON.stringify({ title: this.textTitle, content: this.textContent }));
       this.infiniteEditorSaving();
     }, 500);
   }
 
-  editorReady(editor) {
+  editorReady(editor: any): void {
     editor.ui.getEditableElement().parentElement.insertBefore(
       editor.ui.view.toolbar.element,
       editor.ui.getEditableElement()
     );
   }
 
-  print() {
+  // Printing text to the browser print UI
+  printText(): void {
     const printWindow = window.open('', 'Noizee', 'height=720,width=1280');
 
     printWindow.document.write('<html><head><title>' + this.textTitle + '</title>');
@@ -120,8 +121,8 @@ export class MainComponent implements OnInit {
     printWindow.close();
   }
 
-  // Misc.
-  getJSON(arg): Observable<any> {
-    return this.http.get(arg);
+  // Misc
+  getJSON(url: string): Observable<any> {
+    return this.http.get(url);
   }
 }
