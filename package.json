@@ -6,7 +6,7 @@
     "start": "ng serve --open",
     "build": "ng build --configuration production",
     "test": "ng test",
-    "subfolder-build": "ng build --base-href=\"/noizee/\" --deploy-url=/noizee/ --configuration production"
+    "subfolder-build": "ng build --base-href=\"/noizee/\" --configuration production"
   },
   "private": true,
   "dependencies": {
