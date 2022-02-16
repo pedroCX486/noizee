@@ -1,5 +1,6 @@
 // Material Icons
-@import '~material-design-icons/iconfont/material-icons.css';
+$material-design-icons-font-directory-path: '~material-design-icons-iconfont/dist/fonts/';
+@import '~material-design-icons-iconfont/src/material-design-icons';
 
 // Volume Controls - Don't mess with them unless you know what to do.
 input[type="range"] {
@@ -22,13 +23,13 @@ input[type="range"] {
   input[type="range"]::-webkit-slider-thumb {
     box-shadow: 0.6px 0.6px 1.5px #71bdcc, 0px 0px 0.6px #84c6d3;
     border: 5.5px solid #5ea5ff;
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     border-radius: 12px;
     background: #5ba2ff;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -6.85px;
+    margin-top: -11px;
   }
   input[type="range"]:focus::-webkit-slider-runnable-track {
     background: #dce9fa;
@@ -87,4 +88,3 @@ input[type="range"] {
   input[type="range"]:focus::-ms-fill-upper {
     background: #dce9fa;
   }
-  
