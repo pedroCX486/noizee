@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "build": "ng build --configuration production",
+    "build": "ng build --configuration=production",
     "test": "ng test",
-    "subfolder-build": "ng build --base-href=\"/noizee/\" --configuration production"
+    "build:subfolder": "ng build --base-href=\"/noizee/\" --configuration=production"
   },
   "private": true,
   "dependencies": {
