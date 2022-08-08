@@ -1,6 +1,6 @@
 # Noizee
 
-An alternative to Noisli made in [Angular](https://github.com/angular/angular-cli). Now unmaintained, check the new version using Vue3, [here](https://github.com/pedroCX486/noizee-vue3/).
+An alternative to Noisli made in [Angular](https://github.com/angular/angular-cli). You can also check the Vue3 version, [here](https://github.com/pedroCX486/noizee-vue3/).
 
 ## Development
 
