@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { style, animate, transition, trigger } from '@angular/animations';
+import { SoundList } from 'src/shared/soundlist.interface';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit {
   public textTitle!: string;
   public textContent!: string;
 
-  public soundList!: Array<any>;
+  public soundList!: SoundList[];
 
   constructor(private http: HttpClient) {
     this.resetEditor();

@@ -1,6 +1,6 @@
 <div class="header">
   <div>
-    <img src="./assets/logo.png" class="logo" />
+    <img alt="Noizee" src="./assets/logo.png" class="logo" />
   </div>
   <div class="mute-btn" (click)="stopSounds()" title="Stop all sounds">
     <i class="material-icons">volume_off</i> <br />
@@ -18,17 +18,17 @@
     </audio>
 
     <div (click)="audioControls(sound.filename)">
-      <img src="./assets/icons/{{sound.icon}}" class="sound-icon" />
+      <img alt="{{sound.screenname}}" src="./assets/icons/{{sound.icon}}" class="sound-icon" />
       <br />
       <div class="audio-info">
         <span class="text-1">{{sound.screenname}}</span>&nbsp;
         <div class="playing-icon-box">
-          <img *ngIf="sound.playing" src="./assets/icons/playing.svg" class="playing-icon" [@fadeInOut] />
+          <img title="Sound Playing" *ngIf="sound.playing" src="./assets/icons/playing.svg" class="playing-icon" [@fadeInOut] />
         </div>
       </div>
       <br />
     </div>
-    <input type="range" (input)="volumeControls(sound.filename)" min=0 max=1 step='0.01' value='0.30'
+    <input title="volume" type="range" (input)="volumeControls(sound.filename)" min=0 max=1 step='0.01' value='0.30'
       [attr.id]="sound.filename + '-volume'">
   </div>
   <br>
