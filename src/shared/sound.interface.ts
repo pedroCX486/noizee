@@ -1,4 +1,4 @@
-export interface SoundList {
+export interface Sound {
   filename: string;
   screenname: string;
   icon: string;

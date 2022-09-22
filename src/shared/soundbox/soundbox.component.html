@@ -1,1 +1,18 @@
-<p>soundbox works!</p>
+<audio loop preload="none" [attr.id]="sound.filename">
+  <source src="./assets/sounds/{{sound.filename}}.mp3" type="audio/mpeg">
+</audio>
+
+<div (click)="audioControls(sound)">
+  <img alt="{{sound.screenname}}" src="./assets/icons/{{sound.icon}}" class="sound-icon" />
+  <br />
+  <div class="audio-info">
+    <span class="text-1">{{sound.screenname}}</span>&nbsp;
+    <div class="playing-icon-box">
+      <img title="Sound Playing" *ngIf="sound.playing" src="./assets/icons/playing.svg" class="playing-icon"
+        [@fadeInOut] />
+    </div>
+  </div>
+  <br />
+</div>
+<input title="volume" type="range" (input)="volumeControls(sound)" min=0 max=1 step='0.01' value='0.30'
+  [attr.id]="sound.filename + '-volume'">

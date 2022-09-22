@@ -1,0 +1,38 @@
+<!-- TODO: Redo all of the CSS of this component. -->
+
+<div class="editor-modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-editor" class="modal-title pull-left">Text Editor</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeEditorModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="margins">
+          <input [(ngModel)]="textTitle" type="text" class="form-control no-border" placeholder="Your title">
+
+          <ckeditor [(ngModel)]="textContent" [editor]="Editor" (ready)="editorReady($event)"></ckeditor>
+
+          <div id="poweredBy">
+            <a target="_blank"
+              href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/angular.html">
+              Powered by<br>CK Editor
+            </a>
+          </div>
+
+          <div class="header-controls">
+            <button type="button" class="margin-top btn btn-outline-info" (click)="resetEditor()">Reset</button>
+            &nbsp;
+            <button type="button" class="margin-top btn btn-outline-success" (click)="printText()" data-toggle="modal"
+              data-target="#saveModal">Print (To Printer/File)</button> &nbsp;
+          </div>
+          <small>
+            This editor contains an autosave feature that saves your text every 500ms to your LocalStorage.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,10 @@ $material-design-icons-font-directory-path: '~material-design-icons-iconfont/dis
 @import 'shared/styles/editor-controls.scss';
 @import 'shared/styles/animations.scss';
 
+body {
+  background-color: #121212;
+}
+
 // General layout
 .no-border {
   border: 0px solid #ced4da;
@@ -30,6 +34,7 @@ $material-design-icons-font-directory-path: '~material-design-icons-iconfont/dis
 
 .text-1 {
   color: darkgrey;
+  font-size: 14px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
