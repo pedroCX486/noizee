@@ -1,0 +1,26 @@
+// Editor related
+.editor-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: darkgrey;
+  transition: ease-in 300ms;
+  animation: fadein 600ms;
+}
+
+.editor-btn:hover {
+  color: slateblue;
+  transition: ease-in 300ms;
+  cursor: pointer;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 500px;
+  max-height: 500px;
+}
+
+#poweredBy {
+  float: right;
+  margin: 0.8rem;
+  text-align: center;
+}

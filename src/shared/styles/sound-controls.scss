@@ -1,0 +1,38 @@
+.mute-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: darkgrey;
+  transition: ease-in 300ms;
+  animation: fadein 600ms;
+}
+
+.mute-btn:hover {
+  color: crimson;
+  transition: ease-in 300ms;
+  cursor: pointer;
+}
+
+.audio-info {
+  position: relative;
+  display: inline-flex;
+}
+
+.playing-icon-box {
+  position: absolute;
+  right: -10px;
+  margin-left: 10px;
+  top: 0;
+}
+
+.sound-icon {
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+}
+
+.playing-icon {
+  width: 8px;
+  height: 8px;
+}
+

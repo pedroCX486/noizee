@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ModalDirective } from 'ngx-bootstrap/modal';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { style, animate, transition, trigger } from '@angular/animations';
 import { SoundList } from 'src/shared/soundlist.interface';
@@ -24,7 +23,6 @@ import { SoundList } from 'src/shared/soundlist.interface';
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild('editorModal', { static: false }) editorModal!: ModalDirective;
   public Editor = DecoupledEditor;
   public textTitle!: string;
   public textContent!: string;
@@ -41,6 +39,10 @@ export class AppComponent implements OnInit {
 
     this.loadEditorFromStorage();
     this.infiniteEditorSaving();
+  }
+
+  public showModal(): void {
+    alert('The editor modal is deactivated for this version, due to Bootstrap dependency removal. It\'s being reworked and soon will be available!');
   }
 
   // Audio related functions
