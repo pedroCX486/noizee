@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Sound } from 'src/shared/sound.interface';
+import { Sound } from '@shared/sound.interface';
 
 @Component({
   selector: 'app-root',
@@ -38,9 +38,9 @@ export class AppComponent implements OnInit {
     return this.http.get('./assets/soundlist.json');
   }
 
-  muteSounds(): void {
+  muteAllSounds(): void {
     this.soundList.forEach(sound => {
-      (document as any).getElementById(sound.filename).pause();
+      (document.getElementById(sound.filename) as HTMLAudioElement).pause();
       sound.playing = false;
     });
   }

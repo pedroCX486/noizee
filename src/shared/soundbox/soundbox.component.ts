@@ -1,6 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { AfterViewInit, Component, Input } from '@angular/core';
-import { Sound } from '../sound.interface';
+import { Sound } from '@shared/sound.interface';
 
 @Component({
   selector: 'app-soundbox',
