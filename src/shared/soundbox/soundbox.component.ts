@@ -1,5 +1,5 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { Sound } from '../sound.interface';
 
 @Component({
@@ -18,27 +18,51 @@ import { Sound } from '../sound.interface';
     ])
   ]
 })
-export class SoundboxComponent {
+export class SoundboxComponent implements AfterViewInit {
 
   @Input() sound!: Sound;
 
+  public soundVolume = 0.30;
+
+  private audioElement!: HTMLAudioElement;
+  private volumeControl!: HTMLInputElement;
+  private audioCtx!: AudioContext;
+  private track!: MediaElementAudioSourceNode;
+  private gainNode!: GainNode;
+
   constructor() { }
 
-  audioControls(sound: Sound): void {
-    const soundElement = (document.getElementById(sound.filename) as HTMLAudioElement);
+  ngAfterViewInit() {
+    this.audioElement = (document.getElementById(this.sound.filename) as HTMLAudioElement);
+    this.volumeControl = (document.getElementById(this.sound.filename + "-volume") as HTMLInputElement)
+  }
 
-    if (soundElement.paused) {
-      this.volumeControls(sound);
+  audioControls(sound: Sound): void {
+    if (!this.track) {
+      this.audioCtx = new AudioContext();
+      this.track = this.audioCtx.createMediaElementSource(this.audioElement);
+      this.gainNode = this.audioCtx.createGain();
+      this.gainNode.gain.value = this.soundVolume;
+      this.track.connect(this.gainNode).connect(this.audioCtx.destination);
+      this.audioCtx.resume();
+    }
+
+    if (this.audioElement.paused) {
+      this.volumeControls();
       sound.playing = true;
-      soundElement.play();
+      this.audioElement.play();
     } else {
       sound.playing = false;
-      soundElement.pause();
+      this.audioElement.pause();
     }
   }
 
-  volumeControls(sound: Sound): void {
-    (document.getElementById(sound.filename) as HTMLAudioElement).volume = Number((document.getElementById(sound.filename + '-volume') as HTMLInputElement).value);
+  volumeControls(): void {
+    this.volumeControl.addEventListener('input', (e) => {
+      if (this.gainNode) {
+        this.gainNode.gain.value = Number((e.target as HTMLInputElement).value);
+      }
+    }, false);
   }
 
 }

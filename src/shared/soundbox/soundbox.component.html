@@ -14,5 +14,5 @@
   </div>
   <br />
 </div>
-<input title="volume" type="range" (input)="volumeControls(sound)" min=0 max=1 step='0.01' value='0.30'
+<input title="volume" type="range" (input)="volumeControls()" min="0" max="1" step="0.01" [value]="soundVolume"
   [attr.id]="sound.filename + '-volume'">
