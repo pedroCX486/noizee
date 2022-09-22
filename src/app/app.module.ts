@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import { SoundboxComponent } from '../shared/soundbox/soundbox.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { SoundboxComponent } from '../shared/soundbox/soundbox.component';
     BrowserAnimationsModule,
     HttpClientModule,
     CommonModule,
-    ModalModule.forRoot(),
     FormsModule,
     CKEditorModule
   ],
