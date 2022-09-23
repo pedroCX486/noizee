@@ -1,10 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-ckeditor-modal',
   templateUrl: './ckeditor-modal.component.html',
-  styleUrls: ['./ckeditor-modal.component.scss']
+  styleUrls: ['./ckeditor-modal.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [   // :enter is alias to 'void => *'
+        style({ opacity: 0 }),
+        animate(400, style({ opacity: 1 }))
+      ]),
+      transition(':leave', [   // :leave is alias to '* => void'
+        animate(400, style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class CkeditorModalComponent implements OnInit {
 
@@ -12,13 +25,29 @@ export class CkeditorModalComponent implements OnInit {
   public textTitle!: string;
   public textContent!: string;
 
+  @Output() closeModal = new EventEmitter<void>();
+
+  private storageSubject: Subject<void> = new Subject();
+  public textSaved = false;
+
   constructor() {
     this.resetEditor();
   }
 
   ngOnInit(): void {
     this.loadEditorFromStorage();
-    this.infiniteEditorSaving();
+    this.initializeContinuousStorage();
+  }
+
+  initializeContinuousStorage(): void {
+    this.storageSubject.pipe(debounceTime(1000)).subscribe(() => {
+      localStorage.setItem('textEditor', JSON.stringify({ title: this.textTitle, content: this.textContent }));
+      this.textSaved = true;
+
+      setTimeout(() => {
+        this.textSaved = false;
+      }, 1000);
+    });
   }
 
   resetEditor(): void {
@@ -27,7 +56,7 @@ export class CkeditorModalComponent implements OnInit {
   }
 
   closeEditorModal(): void {
-    console.log('Does nothing yet.');
+    this.closeModal.emit();
   }
 
   loadEditorFromStorage(): void {
@@ -37,12 +66,8 @@ export class CkeditorModalComponent implements OnInit {
     }
   }
 
-  // TODO: Migrate this to a debounce
-  infiniteEditorSaving(): void {
-    setTimeout(() => {
-      localStorage.setItem('textEditor', JSON.stringify({ title: this.textTitle, content: this.textContent }));
-      this.infiniteEditorSaving();
-    }, 500);
+  updateStorage(): void {
+    this.storageSubject.next();
   }
 
   editorReady(editor: any): void {

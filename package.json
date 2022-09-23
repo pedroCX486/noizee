@@ -18,9 +18,9 @@
     "@angular/platform-browser": "^14.2.3",
     "@angular/platform-browser-dynamic": "^14.2.3",
     "@angular/router": "^14.2.3",
-    "@ckeditor/ckeditor5-angular": "~2.0.2",
-    "@ckeditor/ckeditor5-build-decoupled-document": "~32.0.0",
-    "material-design-icons-iconfont": "^6.1.1",
+    "@ckeditor/ckeditor5-angular": "~4.0.0",
+    "@ckeditor/ckeditor5-build-decoupled-document": "~35.1.0",
+    "material-design-icons-iconfont": "^6.7.0",
     "rxjs": "~7.5.6",
     "tslib": "^2.4.0",
     "zone.js": "~0.11.8"

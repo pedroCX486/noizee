@@ -14,13 +14,12 @@
   cursor: pointer;
 }
 
-:host ::ng-deep .ck-editor__editable_inline {
-  min-height: 500px;
-  max-height: 500px;
-}
-
-#poweredBy {
-  float: right;
-  margin: 0.8rem;
-  text-align: center;
+.editor-modal {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  background-color: white;
+  border: solid 1px gray;
+  border-radius: 5px;
 }

@@ -4,8 +4,12 @@ $material-design-icons-font-directory-path: '~material-design-icons-iconfont/dis
 
 @import 'shared/styles/volume-controls.scss';
 @import 'shared/styles/sound-controls.scss';
-@import 'shared/styles/editor-controls.scss';
+@import 'shared/styles/editor-modal.scss';
 @import 'shared/styles/animations.scss';
+
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 body {
   background-color: #121212;
@@ -35,7 +39,6 @@ body {
 .text-1 {
   color: darkgrey;
   font-size: 14px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .list-container {

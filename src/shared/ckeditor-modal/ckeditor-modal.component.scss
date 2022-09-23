@@ -1,0 +1,80 @@
+.modal-header {
+  display: flex;
+  padding: 1rem;
+  max-height: 2rem;
+}
+
+.modal-title {
+  flex: 1;
+  color: darkcyan;
+}
+
+.modal-body {
+  overflow: hidden;
+}
+
+.margins {
+  padding: 1rem;
+}
+
+.editor-title {
+  width: 99.6%;
+  border: none;
+  font-size: 21px;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 500px;
+  max-height: 500px;
+}
+
+.saved {
+  color: gray;
+}
+
+.powered-by {
+  float: right;
+  margin: 0.8rem;
+  text-align: center;
+  font-size: small;
+}
+
+.close-button {
+  border: none;
+  color: #e90505;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+  width: 32px;
+  font-size: 21px;
+  padding-left: 7px;
+  padding-bottom: 3px;
+  font-weight: bolder;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.reset-button {
+  background-color: #dc2d2d; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.print-button {
+  background-color: #4c84af; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}

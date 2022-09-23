@@ -5,15 +5,13 @@
   <div class="mute-btn" (click)="muteAllSounds()" title="Stop all sounds">
     <i class="material-icons">volume_off</i> <br />
   </div>
-  <div class="editor-btn" (click)="showEditorModal()" title="Open text editor">
+  <div class="editor-btn" (click)="openEditorModal()" title="Open text editor">
     <i class="material-icons">edit</i> <br />
   </div>
 </div>
 
 <div class="list-container">
-  <div *ngFor="let sound of soundList" class="sound-box">
-    <app-soundbox [sound]="sound"></app-soundbox>
-  </div>
+  <app-soundbox *ngFor="let sound of soundList" [sound]="sound" class="sound-box"></app-soundbox>
   <br>
   <small class="text-1 footer">
     Icons by <a rel="noopener" target="_blank" href="https://www.flaticon.com/br/autores/eucalyp"
@@ -24,3 +22,5 @@
     Issues playing? Our sounds are in MP3 format.<br>Linux users may need to install extra codecs to play them.
   </small>
 </div>
+
+<app-ckeditor-modal *ngIf="showModal" (closeModal)="closeEditorModal()" class="editor-modal" [@fadeInOut]></app-ckeditor-modal>

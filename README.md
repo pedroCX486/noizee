@@ -17,7 +17,3 @@ Just do a pull request!
 ## License
 
 Code is licensed under the WTFPL. Icons are owned by the respective creator. Sound files I have no credits currently since I got on a torrent dump with not much info.
-
-## TODO
-
-- Revive the CKEditor. It was KIA during the migration to Angular 14 and removal of bootstrap.
