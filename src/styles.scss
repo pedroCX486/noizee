@@ -9,6 +9,11 @@ $material-design-icons-font-directory-path: '~material-design-icons-iconfont/dis
 
 * {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  a, a:visited{
+    color: rgb(12, 165, 35);
+    text-decoration: none;
+  }
 }
 
 body {

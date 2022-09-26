@@ -6,7 +6,7 @@
 
 .modal-title {
   flex: 1;
-  color: darkcyan;
+  margin-top: 0.5rem;
 }
 
 .modal-body {
@@ -34,7 +34,7 @@
 
 .powered-by {
   float: right;
-  margin: 0.8rem;
+  margin: 1.3rem;
   text-align: center;
   font-size: small;
 }
@@ -65,6 +65,7 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .print-button {
@@ -77,4 +78,5 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
 }
