@@ -76,7 +76,8 @@
               "browserTarget": "noizee:build:production"
             },
             "development": {
-              "browserTarget": "noizee:build:development"
+              "browserTarget": "noizee:build:development",
+              "disableHostCheck": true
             }
           },
           "defaultConfiguration": "development"
